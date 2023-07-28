@@ -1,0 +1,44 @@
+.container{
+    height: 736px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagecontainer{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+}
+
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    gap:30px;
+}
+
+
+.textcontainer{position: relative;
+    font-size: 30px;
+    font-weight: 600;
+    height:90px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    
+}
+
+.icon{
+
+    font-size: 30px;
+    
+}
+
+.back{
+    position: relative;
+    height: 60px;
+
+    margin-top: 50px;
+    left:-40%;
+}

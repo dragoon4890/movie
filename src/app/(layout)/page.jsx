@@ -1,20 +1,27 @@
+"use client"
 import Image from 'next/image'
 import styles from './page.module.css'
 import Bottombar from '@/components/bottom bar/bottombar'
+import { IonIcon } from '@ionic/react'
+import HamburgerMenu from "@/components/hamburgermenu/HamburgerMenu.jsx"
+
+import {menuOutline} from 'ionicons/icons'
 
 export default function Home() {
   return (
     <div className={styles.main}>
-     
+    
       <div className={styles.top}>
         <div className={styles.navbar}>
-          <Image src="/Vector 86.png" height="50" width="55" className={styles.img}/>
+        <HamburgerMenu />
+        
             <h1 className={styles.heading}>Search</h1>
           <Image src="/Group 6.png" height="40" width="40" className={styles.img}/>
         </div>
         <div className={styles.searchcontainer}>
       
-          <div className={styles.box}>
+          <div  className={styles.box}>
+            <input className={styles.input}></input>
         <Image src="/search.png" height="32" width="32" className={styles.search}/>
           </div>
 
@@ -56,8 +63,8 @@ export default function Home() {
         <div className={styles.category}>
           <div className={styles.textcontainer}>
             <h3>
-          Popular
-          </h3>
+            Popular
+            </h3>
           </div>
           <div className={styles.imgcontainer}>
             <Image src="/Rectangle 98.jpg" height="180" width="150" className={styles.label}/>
@@ -70,12 +77,7 @@ export default function Home() {
        
       
       </div> 
-      
-      
-      
-      
-
-      <Bottombar/>
+  
       
     </div>
   )

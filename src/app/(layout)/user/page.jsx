@@ -1,11 +1,11 @@
 import Bottombar from "@/components/bottom bar/bottombar"
 
-const Ticket =()=>{
+const User =()=>{
     return(
         <div>
-            <Bottombar/>
+           
         </div>
     )
 }
 
-export default Ticket
+export default User

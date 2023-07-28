@@ -1,5 +1,5 @@
 
-
+import Bottombar from '@/components/bottom bar/bottombar'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -19,8 +19,9 @@ export default function RootLayout({ children }) {
       <body className="body">
         <div className="main">
         {children}
-        
+        <Bottombar/>
         </div>
+        
         </body>
     </html>
   )

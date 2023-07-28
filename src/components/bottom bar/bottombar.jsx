@@ -1,63 +1,51 @@
 "use client"
-import Image from "next/image"
+
 import styles from "./bottombar.module.css"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { useState } from "react"
+import { IonIcon } from '@ionic/react';
+import {homeOutline} from 'ionicons/icons';
+import {locationOutline} from 'ionicons/icons';
+import {ticketOutline} from 'ionicons/icons';
+import {personOutline} from 'ionicons/icons';
 
 
 
 
 
 const Bottombar =()=>{
-    const router=usePathname()
-    const LinkActive =(href)=>{
-        
-    
-        return router ===href;
-    }
 
-    console.log(router)
+    const [active,setActive]= useState(0);
+    const Menus = [
+        { name: "/", icon: homeOutline, dis: "translate-x-0" },
+        { name: "/location", icon: locationOutline, dis: "translate-x-16" },
+        { name: "/ticket", icon: ticketOutline, dis: "translate-x-32" },
+        { name: "/user", icon: personOutline, dis: "translate-x-48" }
+        
+      ];
+    
+   
+
     
     return (<div className={styles.panel}>
        
         <div className={styles.container}>
-        <Link href="/" alt="Home">
-        {LinkActive("/") && <Image src="/Subtract.svg" height="42" width="78" className={styles.image}/>}
-        { LinkActive("/") && <div className={styles.box}> </div>}
-            <Image src="/home.png" height="16" width="16" className={styles.img} /> 
-            </Link>
+            
+       {Menus.map((menu,i)=>(
+        <div className={styles.botom}>
+            <span className={`${styles.box} ${i==active?styles[`acti${i}`]:""}`}></span>
+        <Link href={menu.name} key={i} className={`${styles.links} ${i === active ? styles.active : ''}` } onClick={() => setActive(i)} >
+            <IonIcon icon={menu.icon} className={styles.img} />
+        </Link>
+        
+       </div>
+       ))}
+
         </div>
         
 
         
-        <div className={styles.container}>
-        <Link href="/location" alt="location">
-        {LinkActive("/location") && <Image src="/Subtract.svg" height="42" width="78" className={styles.image}/>}
-        { LinkActive("/location") && <div className={styles.box}> </div>}
-        <Image src="/location.png" height="40" width="78" className={styles.imi} />
-        </Link>
         
-        </div>
-        
-
-        
-        <div className={styles.container}>
-        <Link href="/ticket" alt="ticket">
-        {LinkActive("/ticket") && <Image src="/Subtract.svg" height="42" width="78" className={styles.image}/>}
-        { LinkActive("/ticket") && <div className={styles.box}> </div>}
-        <Image src="/ticket.png" width="78" height="40" className={styles.imi} />
-        </Link>
-        </div>
-        
-        
-        
-        <div className={styles.container}>
-        <Link href="/user" alt="user">
-        {LinkActive("/user") && <Image src="/Subtract.svg" height="42" width="78" className={styles.image}/>}
-        { LinkActive("/user") && <div className={styles.box}> </div>}
-        <Image src="/user.png" height="40" width="78" className={styles.imi} />
-        </Link>
-        </div>
         
         
     </div>)

@@ -1,11 +1,13 @@
 import Bottombar from "@/components/bottom bar/bottombar"
 
-const User =()=>{
+
+const Location =()=>{
     return(
         <div>
-            <Bottombar/>
+            
         </div>
+        
     )
 }
 
-export default User
+export default Location
